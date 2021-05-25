@@ -7,7 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-DEVELOPER_KEY = 'AIzaSyAJkIHsN0svj3vchfggaonFTsj4oNo2gnA'
+DEVELOPER_KEY = 'Your_Key'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
