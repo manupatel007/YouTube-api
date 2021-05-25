@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 
-DEVELOPER_KEY = 'AIzaSyAJkIHsN0svj3vchfggaonFTsj4oNo2gnA'
+DEVELOPER_KEY = 'YOUR_API_KEY'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
@@ -41,8 +41,8 @@ def youtube_search(initial_date):
         a.save()
     return mx_date
 
-initial_date = "2020-11-05T07:20:39Z"
+initial_date = "2020-11-05T07:20:39Z" #it will get updated as per the latest video's time
 while(1):
     sleep(15)
-    print("a",initial_date)
+    #print("a",initial_date)
     initial_date = youtube_search(initial_date)
