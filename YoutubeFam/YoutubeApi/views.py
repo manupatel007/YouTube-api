@@ -7,7 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-DEVELOPER_KEY = 'Your_Key'
+DEVELOPER_KEY = 'Your_key'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
@@ -68,3 +68,10 @@ def paginated_vids(request):
         data = paginator.page(paginator.num_pages)
 
     return render(request, 'youtube.html', { 'data': data })
+
+def search_vids(request,q):
+    title_search = YoutubeData.objects.filter(title__contains=q)
+    description_search = YoutubeData.objects.filter(description__contains=q)
+    search_result = (title_search | description_search).distinct()
+    #print(len(search_result))
+    return render(request,'video.html',{'data':search_result})
