@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+
+    django:
+        build: .
+        container_name: django
+        command: python YoutubeFam/manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/usr/src/app/
+        ports:
+            - "8000:8000"
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+
+    rabbit:
+        hostname: rabbit
+        image: rabbitmq:latest
+        environment:
+            - RABBITMQ_DEFAULT_USER=admin
+            - RABBITMQ_DEFAULT_PASS=mypass
+        ports:
+            - "5672:5672"
+
+    celery:
+        build: .
+        command: bash -c "cd YoutubeFam && celery -A YoutubeFam worker -l info"
+        volumes:
+            - .:/usr/src/app
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+        depends_on:
+            - rabbit
