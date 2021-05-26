@@ -6,7 +6,7 @@
 2. ```RabbitMQ server``` For asynchronous calls to Youtube API
 3. Google API Key(To be inserted [this](YoutubeFam/YoutubeApi/tasks.py) file)
 
-Inorder to install RabbitMQ server in UBUNTU --
+In order to install RabbitMQ server in UBUNTU --
 
 ```sudo apt-get install rabbitmq-server```
 
@@ -25,13 +25,13 @@ Now, following step are to be performed on command line after cloning this repo 
 
 3.	```cd YoutubeFam```
 
-4.	```python manage.py runserver``` TO start the main server
+4.	```python manage.py runserver``` To start the main server
 
 5. In a seprate terminal with same root directory, run below commands
 
 ```pip install pipenv```
 
-```celery -A cryptocurrencytracking worker -l info``` To start celery process(For continous call to API database will be updated every 15 seconds)
+```celery -A cryptocurrencytracking worker -l info``` To start celery process(For continous call to API, database will be updated every 15 seconds)
 
 Now both APIs(for getting latest video information and search API) are paginated and have a browsable interface.
 
