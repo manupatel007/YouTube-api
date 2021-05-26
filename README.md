@@ -24,5 +24,5 @@ Search API can be consumed as followed--
 
 ```http://127.0.0.1:8000/find/<one_word_search>/```
 
-example - ````http://127.0.0.1:8000/find/cricket/```
+example - ```http://127.0.0.1:8000/find/cricket/```
 
